@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+        http://www.springframework.org/schema/beans/spring-beans.xsd  
+        http://code.alibabatech.com/schema/dubbo  
+        http://code.alibabatech.com/schema/dubbo/dubbo.xsd  
+        ">
+	<!-- 具体的实现bean -->
+	<bean id="userService" class="com.service.impl.UserServiceImpl" />
+
+	<!--应用名称-->  
+    <dubbo:application name="hello-world" />  
+  
+    <!-- 注册地址 -->  
+    <dubbo:registry address="zookeeper://123.207.114.170:2181" />  
+  
+    <!-- 接口的位置 -->  
+    <dubbo:service interface="com.service.UserService"  
+                   ref="userService" />  
+
+</beans>
+
